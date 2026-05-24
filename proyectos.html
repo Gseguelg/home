@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos | Gabriel Seguel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #2563eb, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Fade-in on load */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            opacity: 0;
+            animation: fadeUp 0.55s ease forwards;
+        }
+
+        .fade-up-1 {
+            animation-delay: 0.05s;
+        }
+
+        .fade-up-2 {
+            animation-delay: 0.15s;
+        }
+
+        .fade-up-3 {
+            animation-delay: 0.25s;
+        }
+
+        .fade-up-4 {
+            animation-delay: 0.35s;
+        }
+
+        .fade-up-5 {
+            animation-delay: 0.45s;
+        }
+
+        .fade-up-6 {
+            animation-delay: 0.55s;
+        }
+
+        /* Filter pill active state */
+        .pill-active {
+            background-color: #1d4ed8;
+            color: #fff;
+            border-color: #1d4ed8 !important;
+            font-weight: 700;
+            box-shadow: 0 2px 10px rgba(29,78,216,0.25);
+        }
+
+        .pill {
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        .pill:hover:not(.pill-active) {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+            border-color: #93c5fd !important;
+        }
+
+        /* Card hover lift */
+        .project-card {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.10);
+        }
+
+        /* Tag badge */
+        .tag {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            padding: 2px 8px;
+            border-radius: 999px;
+            text-transform: uppercase;
+        }
+
+        /* Image placeholder gradient for missing assets */
+        .img-placeholder {
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+        }
+
+        /* Divider line in hero */
+        .hero-line {
+            width: 48px;
+            height: 3px;
+            background: linear-gradient(90deg, #2563eb, #10b981);
+            border-radius: 2px;
+        }
+
+        /* Featured card */
+        .featured-card .img-wrap {
+            height: 240px;
+        }
+
+        /* Sidebar sticky filter on desktop */
+        @media (min-width: 1024px) {
+            .filter-sidebar {
+                position: sticky;
+                top: 100px;
+                align-self: start;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- ─── Navegación (idéntica al index) ─── -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-bold tracking-tighter text-xl">GSG<span class="text-blue-600"></span></a>
+            <div class="space-x-8 text-sm font-medium uppercase tracking-widest">
+                <a href="index.html#perfil" class="hover:text-blue-600 transition">Perfil</a>
+                <a href="index.html#experiencia" class="hover:text-blue-600 transition">Experiencia</a>
+                <a href="proyectos.html" class="text-blue-600">Proyectos</a>
+                <a href="https://github.com/Gseguelg" class="hover:text-blue-600 transition">Github</a>
+                <a href="#contacto" class="text-blue-600 border border-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ─── Hero ─── -->
+    <section class="pt-36 pb-16 px-6 bg-white border-b border-slate-100">
+        <div class="max-w-6xl mx-auto fade-up fade-up-1">
+            <span class="mono text-blue-600 font-semibold text-xs tracking-widest uppercase">Portafolio</span>
+            <h1 class="text-5xl font-bold text-slate-900 mt-3 mb-4 tracking-tight">Proyectos</h1>
+            <div class="hero-line mb-6"></div>
+            <p class="text-slate-500 max-w-2xl text-base leading-relaxed">
+                Desarrollos en <span class="text-slate-800 font-semibold">Data Science</span>, <span class="text-slate-800 font-semibold">RPA</span>,
+                <span class="text-slate-800 font-semibold">Mercado Eléctrico</span>, <span class="text-slate-800 font-semibold">Optimización Energética</span> y
+                <span class="text-slate-800 font-semibold">Finanzas</span>. Cada proyecto refleja la intersección entre ingeniería eléctrica y análisis de datos.
+            </p>
+        </div>
+    </section>
+
+    <!-- ─── Body: Filtro + Grid ─── -->
+    <section class="py-16 px-6">
+        <div class="max-w-6xl mx-auto lg:flex lg:gap-12">
+
+            <!-- Sidebar filtros -->
+            <aside class="filter-sidebar lg:w-52 mb-10 lg:mb-0 fade-up fade-up-2">
+                <p class="mono text-xs text-slate-400 uppercase tracking-widest mb-4">Categorías</p>
+                <div class="flex flex-wrap lg:flex-col gap-2" id="filters">
+                    <button class="pill pill-active text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="all">Todos</button>
+                    <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="mercado">Mercado Eléctrico</button>
+                    <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="planificacion">Planificación Eléctrica</button>
+                    <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="ernc">ERNC</button>
+                    <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="data">Data Science</button>
+                    <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="rpa">RPA / Automatización</button>
+                    <!-- <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="optimizacion">Optimización</button> -->
+                    <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="finanzas">Finanzas</button>
+                    <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="idi">I+D+I</button>
+                    <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="electromovilidad">Electromovilidad</button>
+                </div>
+
+                <div class="mt-10 hidden lg:block">
+                    <p class="mono text-xs text-slate-400 uppercase tracking-widest mb-4">Tecnologías</p>
+                    <div class="space-y-2 mono text-xs text-slate-500">
+                        <div>Python · PandaPower</div>
+                        <div>PLP · Plexos</div>
+                        <div>DIgSILENT · ETAP</div>
+                        <div>SQL · Power BI</div>
+                        <div>CPLEX · Gurobi</div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Grid de proyectos -->
+            <div class="flex-1">
+                <p class="mono text-xs text-slate-400 mb-6" id="counter">Mostrando todos los proyectos</p>
+
+                <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6" id="projectGrid">
+
+                    <!-- ─── CARD P01: DIgSILENT DPL Reference ─── -->
+                    <a href="Proyecto_01_Referencia_DIgSILENT_DPL.html" class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-3 block hover:border-blue-400" data-cat="data mercado planificacion">
+                        <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative" style="background: linear-gradient(135deg, #0f1117 0%, #1a1d27 100%);">
+                            <span class="text-5xl">📋</span>
+                            <span class="absolute top-3 right-3 tag bg-blue-900 text-blue-200">Referencia</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg leading-snug">Referencia DIgSILENT DPL</h3>
+                            <p class="text-slate-500 text-sm mt-2 leading-relaxed">Guía de referencia completa del lenguaje de programación DPL (DIgSILENT Programming Language) para PowerFactory 2021, con ejemplos de comandos, scripts y automatización.</p>
+                            <div class="mt-4 flex flex-wrap gap-1">
+                                <span class="tag bg-slate-100 text-slate-500">DIgSILENT</span>
+                                <span class="tag bg-slate-100 text-slate-500">DPL</span>
+                                <span class="tag bg-slate-100 text-slate-500">Automatización</span>
+                            </div>
+                            <p class="mt-3 text-xs text-blue-600 font-semibold mono flex items-center gap-1">Ver proyecto →</p>
+                        </div>
+                    </a>
+
+                    <!-- ─── CARD P02: DIgSILENT Python API Reference ─── -->
+                    <a href="Proyecto_02_Reference_DIgSILENT_Python.html" class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-3 block hover:border-emerald-400" data-cat="data mercado planificacion">
+                        <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative" style="background: linear-gradient(135deg, #0b0f1a 0%, #1a2235 100%);">
+                            <span class="text-5xl">🐍</span>
+                            <span class="absolute top-3 right-3 tag bg-emerald-900 text-emerald-200">Referencia</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg leading-snug">DIgSILENT Python API Reference</h3>
+                            <p class="text-slate-500 text-sm mt-2 leading-relaxed">Referencia completa de la API Python para DIgSILENT PowerFactory: automatización de simulaciones, acceso a objetos de red y gestión de resultados desde scripts externos.</p>
+                            <div class="mt-4 flex flex-wrap gap-1">
+                                <span class="tag bg-slate-100 text-slate-500">DIgSILENT</span>
+                                <span class="tag bg-slate-100 text-slate-500">Python</span>
+                                <span class="tag bg-slate-100 text-slate-500">API</span>
+                            </div>
+                            <p class="mt-3 text-xs text-emerald-600 font-semibold mono flex items-center gap-1">Ver proyecto →</p>
+                        </div>
+                    </a>
+
+                    <!-- ─── CARD 1: QB3 ─── -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-3" data-cat="mercado">
+                        <div class="img-placeholder img-wrap h-44 overflow-hidden relative">
+                            <img src="assets/proyecto-qb2-digsilent.png" alt="Quebrada Blanca 3" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg leading-snug">Expansión Quebrada Blanca 3</h3>
+                            <p class="text-slate-500 text-sm mt-2 leading-relaxed">Estrategias de conexión de grandes consumos y generación en fases 1, 2 y 3 mediante simulación DIgSILENT.</p>
+                            <div class="mt-4 flex flex-wrap gap-1">
+                                <span class="tag bg-slate-100 text-slate-500">DIgSILENT</span>
+                                <span class="tag bg-slate-100 text-slate-500">Consultoría</span>
+                                <span class="tag bg-slate-100 text-slate-500">Planificación Eléctrica</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ─── CARD 2: Auto Solar ─── -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-3" data-cat="idi ernc electromovilidad">
+                        <div class="img-placeholder img-wrap h-44 overflow-hidden relative">
+                            <img src="assets/auto-solar.png" alt="Auto Solar UdeC" class="w-full h-full object-cover opacity-80" onerror="this.style.display='none'">
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg leading-snug">Proyecto Auto Solar UdeC</h3>
+                            <p class="text-slate-500 text-sm mt-2 leading-relaxed">
+                                Antunekül I (2014): 3° lugar Carrera Solar Atacama.<br>
+                                Antunekül II (2016): 1° lugar Carrera Solar Atacama.
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-1">
+                                <span class="tag bg-slate-100 text-slate-500">Electromovilidad</span>
+                                <span class="tag bg-slate-100 text-slate-500">Energía Solar</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ─── CARD 3: Hidrotérmica ─── -->
+                    <!-- <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-4" data-cat="optimizacion mercado">
+                        <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative">
+                            <span class="text-5xl">⚡</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg leading-snug">Coordinación Hidrotérmica Estocástica</h3>
+                            <p class="text-slate-500 text-sm mt-2 leading-relaxed">Modelamiento y análisis de despacho óptimo con incertidumbre hidrológica usando PLP y Plexos para el SEN chileno.</p>
+                            <div class="mt-4 flex flex-wrap gap-1">
+                                <span class="tag bg-slate-100 text-slate-500">PLP</span>
+                                <span class="tag bg-slate-100 text-slate-500">Plexos</span>
+                                <span class="tag bg-slate-100 text-slate-500">Optimización</span>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- ─── CARD 4: Dashboard BI ─── -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-4" data-cat="data">
+                        <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative">
+                            <span class="text-5xl">📊</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg leading-snug">Dashboard BI — Mercado Spot</h3>
+                            <p class="text-slate-500 text-sm mt-2 leading-relaxed">Panel interactivo para seguimiento de precios de nudo, costos marginales y balance de generación del SEN en tiempo cuasi-real.</p>
+                            <div class="mt-4 flex flex-wrap gap-1">
+                                <span class="tag bg-slate-100 text-slate-500">Power BI</span>
+                                <span class="tag bg-slate-100 text-slate-500">SQL</span>
+                                <span class="tag bg-slate-100 text-slate-500">Python</span>
+                                <span class="tag bg-slate-100 text-slate-500">Data Science</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ─── CARD 5: RPA Regulación ─── -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-5" data-cat="rpa">
+                        <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative">
+                            <span class="text-5xl">🤖</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg leading-snug">Automatización de Reportes Regulatorios</h3>
+                            <p class="text-slate-500 text-sm mt-2 leading-relaxed">Pipeline RPA para extracción, validación y envío automático de informes técnicos a la CNE y SEC, reduciendo tiempo operativo en un 70 %.</p>
+                            <div class="mt-4 flex flex-wrap gap-1">
+                                <span class="tag bg-slate-100 text-slate-500">Python</span>
+                                <span class="tag bg-slate-100 text-slate-500">Pandas</span>
+                                <span class="tag bg-slate-100 text-slate-500">RPA</span>
+                                <span class="tag bg-slate-100 text-slate-500">Mercado Electrico</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ─── CARD 6: Finanzas ─── -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-5" data-cat="finanzas data">
+                        <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative">
+                            <span class="text-5xl">📈</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg leading-snug">Análisis de Riesgo Energético-Financiero</h3>
+                            <p class="text-slate-500 text-sm mt-2 leading-relaxed">Modelo cuantitativo para valoración de contratos PPA bajo distintos escenarios hidrológicos y de precios de combustibles.</p>
+                            <div class="mt-4 flex flex-wrap gap-1">
+                                <span class="tag bg-slate-100 text-slate-500">Python</span>
+                                <span class="tag bg-slate-100 text-slate-500">Monte Carlo</span>
+                                <span class="tag bg-slate-100 text-slate-500">PPA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ─── CARD 7: Redes PandaPower ─── -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-6" data-cat="data optimizacion mercado">
+                        <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative">
+                            <span class="text-5xl">🔌</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg leading-snug">Análisis de Redes con PandaPower</h3>
+                            <p class="text-slate-500 text-sm mt-2 leading-relaxed">Flujos de potencia, contingencias N-1 y hosting capacity para integración de ERNC en sistemas de distribución MT/BT.</p>
+                            <div class="mt-4 flex flex-wrap gap-1">
+                                <span class="tag bg-slate-100 text-slate-500">PandaPower</span>
+                                <span class="tag bg-slate-100 text-slate-500">Python</span>
+                                <span class="tag bg-slate-100 text-slate-500">ERNC</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ─── CARD 8: Optimización CPLEX ─── -->
+                    <!-- <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-6" data-cat="optimizacion">
+                        <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative">
+                            <span class="text-5xl">🧮</span>
+                            <span class="absolute top-3 left-3 tag bg-violet-100 text-violet-700">Optimización</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg leading-snug">Despacho Óptimo con CPLEX / Gurobi</h3>
+                            <p class="text-slate-500 text-sm mt-2 leading-relaxed">Formulación MILP para programación semanal de unidades térmicas e hidráulicas considerando restricciones operativas y ramping.</p>
+                            <div class="mt-4 flex flex-wrap gap-1">
+                                <span class="tag bg-slate-100 text-slate-500">CPLEX</span>
+                                <span class="tag bg-slate-100 text-slate-500">Gurobi</span>
+                                <span class="tag bg-slate-100 text-slate-500">MILP</span>
+                            </div>
+                        </div>
+                    </div> -->
+
+                </div><!-- /grid -->
+
+                <!-- Empty state -->
+                <div id="emptyState" class="hidden text-center py-20 text-slate-400 mono text-sm">
+                    No hay proyectos en esta categoría.
+                </div>
+
+            </div><!-- /flex-1 -->
+        </div>
+    </section>
+
+    <!-- ─── CTA volver ─── -->
+    <section class="px-6 pb-16">
+        <div class="max-w-6xl mx-auto">
+            <a href="index.html" class="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-blue-600 transition mono">
+                ← Volver al inicio
+            </a>
+        </div>
+    </section>
+
+    <!-- ─── Footer / Contacto ─── -->
+    <footer id="contacto" class="bg-slate-900 text-white py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Contacto</h2>
+            <div class="flex justify-center gap-8">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSei_Quq4hQQZV1Gz7C4OFYaktODKp1BbhhdEFyya9KsNqXrSQ/viewform?usp=publish-editor" class="hover:text-blue-400 transition underline underline-offset-8 italic">Mensaje Directo</a>
+                <a href="https://www.linkedin.com/in/gabrielseguelg" class="hover:text-blue-400 transition underline underline-offset-8 italic">LinkedIn</a>
+                <a href="https://github.com/Gseguelg" class="hover:text-blue-400 transition underline underline-offset-8 italic">Github</a>
+            </div>
+            <p class="mt-20 text-xs text-slate-500 mono tracking-widest">Mayo 2026</p>
+        </div>
+    </footer>
+
+    <!-- ─── Filter script ─── -->
+    <script>
+        const pills = document.querySelectorAll('#filters .pill');
+        const cards = document.querySelectorAll('#projectGrid [data-cat]');
+        const counter = document.getElementById('counter');
+        const empty = document.getElementById('emptyState');
+
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                pills.forEach(p => p.classList.remove('pill-active'));
+                pill.classList.add('pill-active');
+
+                const filter = pill.dataset.filter;
+                let visible = 0;
+
+                cards.forEach(card => {
+                    const cats = card.dataset.cat.split(' ');
+                    const show = filter === 'all' || cats.includes(filter);
+                    card.style.display = show ? '' : 'none';
+                    if (show) visible++;
+                });
+
+                counter.textContent = filter === 'all'
+                    ? `Mostrando todos los proyectos`
+                    : `${visible} proyecto${visible !== 1 ? 's' : ''} en esta categoría`;
+
+                empty.classList.toggle('hidden', visible > 0);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

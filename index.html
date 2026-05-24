@@ -33,8 +33,11 @@
       <div class="space-x-8 text-sm font-medium uppercase tracking-widest">
         <a href="#perfil" class="hover:text-blue-600 transition">Perfil</a>
         <a href="#experiencia" class="hover:text-blue-600 transition">Experiencia</a>
-        <a href="#proyectos" class="hover:text-blue-600 transition">Proyectos</a>
-        <a href="https://github.com/Gseguelg" class="text-blue-600 border border-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition">Github</a>
+        <a href="proyectos.html" class="hover:text-blue-600 transition">Proyectos</a>
+        <a href="https://github.com/Gseguelg" class="hover:text-blue-600 transition">Github</a>
+        <a href="#contacto" class="text-blue-600 border border-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition">Contacto</a>
+        <!-- <a href="#contacto" class="hover:text-blue-600 transition">Contacto</a>
+        <a href="https://github.com/Gseguelg" class="text-blue-600 border border-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition">Github</a> -->
       </div>
     </div>
   </nav>
@@ -45,7 +48,7 @@
       <div>
         <span class="mono text-blue-600 font-semibold text-sm tracking-widest">M.Sc. EN INGENIERÍA ELÉCTRICA</span>
         <h1 class="text-6xl font-bold text-slate-900 mt-4 mb-6 tracking-tight">Gabriel Seguel</h1>
-        <p class="text-lg text-slate-600 leading-relaxed mb-8">
+        <p class="text-lg text-slate-600 leading-relaxed mb-8" style="text-align: justify;">
           Profesional de excelencia con conocimiento de la operación real y programada del <span class="text-slate-900 font-semibold">Sistema Eléctrico Nacional Chileno</span>, junto con los <span class="text-slate-900 font-semibold">Sistemas Medianos</span> de <span class="text-slate-900 font-semibold">Hornopirén</span>, <span class="text-slate-900 font-semibold">Magallanes</span> y <span class="text-slate-900 font-semibold">Aysén</span>.
           Posee una amplia visión del mercado eléctrico y los actores que lo componen, en adición de gran interés en <span class="text-slate-900 font-semibold">RPA</span>, <span class="text-slate-900 font-semibold">Data Analytics</span>, <span class="text-slate-900 font-semibold">BI</span> y <span class="text-slate-900 font-semibold">programación</span>. Sabe modelar y analizar problemas de coordinación hidrotérmica estocástica mediante <span class="text-slate-900 font-semibold">PLP</span> y <span class="text-slate-900 font-semibold">Plexos</span>; junto con simulación EMT/RMS en <span class="text-slate-900 font-semibold">DIgSILENT</span>, <span class="text-slate-900 font-semibold">ETAP</span> y <span class="text-slate-900 font-semibold">PandaPower</span>.
         </p>
@@ -65,8 +68,10 @@
           </div>
         </div>
         <div class="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-xl shadow-xl">
-          <p class="text-xs mono uppercase opacity-80">Tech Stack</p>
-          <p class="font-bold">Python + DigSILENT</p>
+          <p class="text-xs mono uppercase opacity-80">Coopelan</p>
+          <!-- <p class="text-xs mono uppercase opacity-80">Tech Stack</p> -->
+          <p class="font-bold">Ingeniero de Regulación y Planificación</p>
+          <!-- <p class="font-bold">Python + DigSILENT</p> -->
         </div>
       </div>
     </div>
@@ -74,7 +79,7 @@
 
   <!-- Banner Proyectos Informáticos -->
   <section class="px-6 py-10">
-    <a href="#" class="block max-w-6xl mx-auto bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 hover:scale-[1.01] transition-transform shadow-lg group">
+    <a href="#proyectos" class="block max-w-6xl mx-auto bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 hover:scale-[1.01] transition-transform shadow-lg group">
       <div class="flex justify-between items-center">
         <div>
           <h3 class="text-white text-2xl font-bold">Revisa mi portafolio</h3>
@@ -118,46 +123,204 @@
     </div>
   </section>
 
-  <!-- Proyectos Destacados (QB2 y Auto Solar) -->
-  <section id="proyectos" class="py-20 px-6 bg-slate-50">
+  <!-- Proyectos Destacados — Carrusel -->
+  <section id="proyectos" class="py-20 px-6 bg-slate-50 overflow-hidden">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold mb-12">Proyectos Emblemáticos</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Card QB2 -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200 group">
-          <div class="h-48 bg-slate-200 overflow-hidden">
-            <img src="assets/proyecto-qb2-digsilent.png" alt="Proyecto QB2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-80">
-          </div>
-          <div class="p-6">
-            <span class="text-xs font-bold text-blue-600 uppercase">Consultoría Estratégica</span>
-            <h4 class="text-xl font-bold mt-2">Expansión Quebrada Blanca 3</h4>
-            <p class="text-slate-600 mt-2 text-sm">Estrategias de conexión de grandes consumos y generación en fases 1, 2 y 3.</p>
-          </div>
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <span class="mono text-blue-600 font-semibold text-xs tracking-widest uppercase">Portafolio</span>
+          <h2 class="text-3xl font-bold mt-2">Proyectos Destacados</h2>
         </div>
-        <!-- Card Auto Solar -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-200 group">
-          <div class="h-48 bg-slate-200 overflow-hidden">
-            <img src="assets/auto-solar.png" alt="Auto Solar UdeC" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-80">
-          </div>
-          <div class="p-6">
-            <span class="text-xs font-bold text-emerald-600 uppercase">I+D + Innovación</span>
-            <h4 class="text-xl font-bold mt-2">Proyecto Auto Solar UdeC</h4>
-            <p class="text-slate-600 mt-2 text-sm">Miembro del área eléctrica. Adjudicación del 1er lugar nacional en Carrera Solar Atacama.</p>
-          </div>
+        <div class="flex items-center gap-3">
+          <button id="carousel-prev" class="w-10 h-10 rounded-full border border-slate-300 bg-white flex items-center justify-center hover:bg-blue-50 hover:border-blue-400 transition text-slate-600 hover:text-blue-600 shadow-sm" aria-label="Anterior">&#8592;</button>
+          <button id="carousel-next" class="w-10 h-10 rounded-full border border-slate-300 bg-white flex items-center justify-center hover:bg-blue-50 hover:border-blue-400 transition text-slate-600 hover:text-blue-600 shadow-sm" aria-label="Siguiente">&#8594;</button>
+          <a href="proyectos.html" class="ml-2 text-sm text-blue-600 font-medium hover:underline underline-offset-4 transition mono">Ver todos →</a>
         </div>
+      </div>
+
+      <!-- Track -->
+      <div class="relative">
+        <div id="carousel-track" class="flex gap-6 transition-transform duration-500 ease-in-out will-change-transform">
+
+          <!-- Card P01: DPL Reference -->
+          <a href="Proyecto_01_Referencia_DIgSILENT_DPL.html" class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="h-44 flex items-center justify-center relative" style="background: linear-gradient(135deg, #0f1117 0%, #1e2744 100%);">
+              <span class="text-5xl">📋</span>
+              <span class="absolute top-3 right-3 text-xs font-bold px-2 py-1 rounded-full bg-blue-900 text-blue-200 uppercase tracking-wider" style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;">Referencia</span>
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">DIgSILENT · DPL</span>
+              <h4 class="text-base font-bold mt-1 leading-snug group-hover:text-blue-700 transition">Referencia DIgSILENT DPL</h4>
+              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Guía completa del lenguaje DPL para PowerFactory 2021 con ejemplos y scripts de automatización.</p>
+            </div>
+          </a>
+
+          <!-- Card P02: Python API Reference -->
+          <a href="Proyecto_02_Reference_DIgSILENT_Python.html" class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="h-44 flex items-center justify-center relative" style="background: linear-gradient(135deg, #0b0f1a 0%, #1a2d45 100%);">
+              <span class="text-5xl">🐍</span>
+              <span class="absolute top-3 right-3 text-xs font-bold px-2 py-1 rounded-full bg-emerald-900 text-emerald-200 uppercase tracking-wider" style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;">Referencia</span>
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">DIgSILENT · Python API</span>
+              <h4 class="text-base font-bold mt-1 leading-snug group-hover:text-emerald-700 transition">Python API Reference</h4>
+              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Referencia de la API Python para PowerFactory: automatización de simulaciones y acceso a objetos de red.</p>
+            </div>
+          </a>
+
+          <!-- Card QB3 -->
+          <div class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="h-44 bg-slate-200 overflow-hidden">
+              <img src="assets/proyecto-qb2-digsilent.png" alt="Proyecto QB3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-80" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center\'><span class=\'text-5xl\'>⚡</span></div>'">
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Consultoría Estratégica</span>
+              <h4 class="text-base font-bold mt-1 leading-snug">Expansión Quebrada Blanca 3</h4>
+              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Estrategias de conexión de grandes consumos y generación en fases 1, 2 y 3.</p>
+            </div>
+          </div>
+
+          <!-- Card Auto Solar -->
+          <div class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="h-44 bg-slate-200 overflow-hidden">
+              <img src="assets/auto-solar.png" alt="Auto Solar UdeC" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-80" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center\'><span class=\'text-5xl\'>☀️</span></div>'">
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">I+D+I · Electromovilidad</span>
+              <h4 class="text-base font-bold mt-1 leading-snug">Proyecto Auto Solar UdeC</h4>
+              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Antunekül I: 3° lugar · Antunekül II: 1° lugar — Carrera Solar Atacama.</p>
+            </div>
+          </div>
+
+          <!-- Card Dashboard BI -->
+          <div class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="h-44 flex items-center justify-center" style="background:linear-gradient(135deg,#1e293b,#0f172a);">
+              <span class="text-5xl">📊</span>
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-bold text-violet-600 uppercase tracking-wider">Data Science · BI</span>
+              <h4 class="text-base font-bold mt-1 leading-snug">Dashboard BI — Mercado Spot</h4>
+              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Panel interactivo para seguimiento de precios de nudo, costos marginales y balance del SEN.</p>
+            </div>
+          </div>
+
+          <!-- Card RPA -->
+          <div class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="h-44 flex items-center justify-center" style="background:linear-gradient(135deg,#1a1f2e,#0f1117);">
+              <span class="text-5xl">🤖</span>
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-bold text-orange-600 uppercase tracking-wider">RPA · Automatización</span>
+              <h4 class="text-base font-bold mt-1 leading-snug">Automatización de Reportes Regulatorios</h4>
+              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Pipeline RPA para extracción y envío automático de informes a la CNE y SEC — 70% menos tiempo operativo.</p>
+            </div>
+          </div>
+
+          <!-- Card Finanzas -->
+          <div class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="h-44 flex items-center justify-center" style="background:linear-gradient(135deg,#0d1f0d,#162616);">
+              <span class="text-5xl">📈</span>
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-bold text-green-600 uppercase tracking-wider">Finanzas · Riesgo</span>
+              <h4 class="text-base font-bold mt-1 leading-snug">Análisis de Riesgo Energético-Financiero</h4>
+              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Valoración de contratos PPA bajo escenarios hidrológicos con simulación Monte Carlo.</p>
+            </div>
+          </div>
+
+          <!-- Card PandaPower -->
+          <div class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="h-44 flex items-center justify-center" style="background:linear-gradient(135deg,#0f1a2e,#1a2744);">
+              <span class="text-5xl">🔌</span>
+            </div>
+            <div class="p-5">
+              <span class="text-xs font-bold text-cyan-600 uppercase tracking-wider">Python · Redes</span>
+              <h4 class="text-base font-bold mt-1 leading-snug">Análisis de Redes con PandaPower</h4>
+              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Flujos de potencia, contingencias N-1 y hosting capacity para integración de ERNC.</p>
+            </div>
+          </div>
+
+        </div><!-- /track -->
+
+        <!-- Dot indicators -->
+        <div id="carousel-dots" class="flex justify-center gap-2 mt-8"></div>
       </div>
     </div>
   </section>
+
+  <script>
+    (function () {
+      const track = document.getElementById('carousel-track');
+      const prevBtn = document.getElementById('carousel-prev');
+      const nextBtn = document.getElementById('carousel-next');
+      const dotsContainer = document.getElementById('carousel-dots');
+      const cards = track.querySelectorAll('.carousel-card');
+      const GAP = 24; // gap-6 = 1.5rem = 24px
+      let current = 0;
+
+      function visibleCount() {
+        const w = track.parentElement.offsetWidth;
+        const cardW = 288 + GAP; // w-72 = 288px
+        return Math.max(1, Math.floor(w / cardW));
+      }
+
+      const total = cards.length;
+
+      function maxIndex() { return Math.max(0, total - visibleCount()); }
+
+      // Build dots
+      function buildDots() {
+        dotsContainer.innerHTML = '';
+        const pages = maxIndex() + 1;
+        for (let i = 0; i < pages; i++) {
+          const d = document.createElement('button');
+          d.className = 'w-2 h-2 rounded-full transition-all duration-300 ' + (i === current ? 'bg-blue-600 w-5' : 'bg-slate-300');
+          d.addEventListener('click', () => goTo(i));
+          dotsContainer.appendChild(d);
+        }
+      }
+
+      function updateDots() {
+        const dots = dotsContainer.querySelectorAll('button');
+        dots.forEach((d, i) => {
+          d.className = 'h-2 rounded-full transition-all duration-300 ' + (i === current ? 'bg-blue-600 w-5' : 'bg-slate-300 w-2');
+        });
+      }
+
+      function goTo(idx) {
+        current = Math.max(0, Math.min(idx, maxIndex()));
+        const cardW = 288 + GAP;
+        track.style.transform = `translateX(-${current * cardW}px)`;
+        updateDots();
+        prevBtn.style.opacity = current === 0 ? '0.4' : '1';
+        nextBtn.style.opacity = current >= maxIndex() ? '0.4' : '1';
+      }
+
+      prevBtn.addEventListener('click', () => goTo(current - 1));
+      nextBtn.addEventListener('click', () => goTo(current + 1));
+
+      // Touch / drag support
+      let startX = 0;
+      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+      });
+
+      buildDots();
+      goTo(0);
+      window.addEventListener('resize', () => { buildDots(); goTo(Math.min(current, maxIndex())); });
+    })();
+  </script>
 
   <!-- Footer / Contacto -->
   <footer id="contacto" class="bg-slate-900 text-white py-20 px-6">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-4">Contacto</h2>
-      <p class="text-slate-400 mb-10 text-lg">M.Sc. Gabriel Seguel - Ingeniero de Regulación y Planificación.</p>
+      <!-- <p class="text-slate-400 mb-10 text-lg">M.Sc. Gabriel Seguel - Ingeniero de Regulación y Planificación.</p> -->
       <div class="flex justify-center gap-8">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSei_Quq4hQQZV1Gz7C4OFYaktODKp1BbhhdEFyya9KsNqXrSQ/viewform?usp=publish-editor" class="hover:text-blue-400 transition underline underline-offset-8 italic">Mensaje Directo</a>
         <a href="https://www.linkedin.com/in/gabrielseguelg" class="hover:text-blue-400 transition underline underline-offset-8 italic">LinkedIn</a>
-        <!-- <a href="mailto:tu-correo@ejemplo.com" class="hover:text-blue-400 transition underline underline-offset-8 italic">Email</a> -->
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSei_Quq4hQQZV1Gz7C4OFYaktODKp1BbhhdEFyya9KsNqXrSQ/viewform?usp=publish-editor" class="hover:text-blue-400 transition underline underline-offset-8 italic">Enviame un mensaje</a>
         <a href="https://github.com/Gseguelg" class="hover:text-blue-400 transition underline underline-offset-8 italic">Github</a>
       </div>
       <p class="mt-20 text-xs text-slate-500 mono tracking-widest">Mayo 2026</p>
