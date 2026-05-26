@@ -70,7 +70,7 @@
             color: #fff;
             border-color: #1d4ed8 !important;
             font-weight: 700;
-            box-shadow: 0 2px 10px rgba(29,78,216,0.25);
+            box-shadow: 0 2px 10px rgba(29, 78, 216, 0.25);
         }
 
         .pill {
@@ -139,21 +139,21 @@
 
 <body class="bg-slate-50 text-slate-800">
 
-    <!-- ─── Navegación (idéntica al index) ─── -->
+    <!-- Navegación -->
     <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-bold tracking-tighter text-xl">GSG<span class="text-blue-600"></span></a>
+            <a href="index.html" class="font-bold tracking-tighter text-xl">GSG<span class="text-blue-600">.</span></a>
             <div class="space-x-8 text-sm font-medium uppercase tracking-widest">
                 <a href="index.html#perfil" class="hover:text-blue-600 transition">Perfil</a>
                 <a href="index.html#experiencia" class="hover:text-blue-600 transition">Experiencia</a>
                 <a href="proyectos.html" class="text-blue-600">Proyectos</a>
                 <a href="https://github.com/Gseguelg" class="hover:text-blue-600 transition">Github</a>
-                <a href="#contacto" class="text-blue-600 border border-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition">Contacto</a>
+                <a href="index.html#contacto" class="text-blue-600 border border-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition">Contacto</a>
             </div>
         </div>
     </nav>
 
-    <!-- ─── Hero ─── -->
+    <!-- Hero -->
     <section class="pt-36 pb-16 px-6 bg-white border-b border-slate-100">
         <div class="max-w-6xl mx-auto fade-up fade-up-1">
             <span class="mono text-blue-600 font-semibold text-xs tracking-widest uppercase">Portafolio</span>
@@ -167,7 +167,7 @@
         </div>
     </section>
 
-    <!-- ─── Body: Filtro + Grid ─── -->
+    <!-- Body: Filtro + Grid -->
     <section class="py-16 px-6">
         <div class="max-w-6xl mx-auto lg:flex lg:gap-12">
 
@@ -181,7 +181,6 @@
                     <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="ernc">ERNC</button>
                     <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="data">Data Science</button>
                     <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="rpa">RPA / Automatización</button>
-                    <!-- <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="optimizacion">Optimización</button> -->
                     <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="finanzas">Finanzas</button>
                     <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="idi">I+D+I</button>
                     <button class="pill text-sm px-4 py-2 rounded-full border border-slate-200 bg-slate-100" data-filter="electromovilidad">Electromovilidad</button>
@@ -205,8 +204,8 @@
 
                 <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6" id="projectGrid">
 
-                    <!-- ─── CARD P01: DIgSILENT DPL Reference ─── -->
-                    <a href="Proyecto_01_Referencia_DIgSILENT_DPL.html" class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-3 block hover:border-blue-400" data-cat="data mercado planificacion">
+                    <!-- CARD P01: DIgSILENT DPL Reference (Fixed link from Proyecto_01_Referencia_DIgSILENT_DPL.html to Proyecto_02) -->
+                    <a href="Proyecto_02_Referencia_DIgSILENT_DPL.html" class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-3 block hover:border-blue-400" data-cat="data mercado planificacion">
                         <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative" style="background: linear-gradient(135deg, #0f1117 0%, #1a1d27 100%);">
                             <span class="text-5xl">📋</span>
                             <span class="absolute top-3 right-3 tag bg-blue-900 text-blue-200">Referencia</span>
@@ -223,8 +222,8 @@
                         </div>
                     </a>
 
-                    <!-- ─── CARD P02: DIgSILENT Python API Reference ─── -->
-                    <a href="Proyecto_02_Reference_DIgSILENT_Python.html" class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-3 block hover:border-emerald-400" data-cat="data mercado planificacion">
+                    <!-- CARD P02: DIgSILENT Python API Reference (Fixed link from Proyecto_02_Reference_DIgSILENT_Python.html to Proyecto_03) -->
+                    <a href="Proyecto_03_Reference_DIgSILENT_Python.html" class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-3 block hover:border-emerald-400" data-cat="data mercado planificacion">
                         <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative" style="background: linear-gradient(135deg, #0b0f1a 0%, #1a2235 100%);">
                             <span class="text-5xl">🐍</span>
                             <span class="absolute top-3 right-3 tag bg-emerald-900 text-emerald-200">Referencia</span>
@@ -241,7 +240,25 @@
                         </div>
                     </a>
 
-                    <!-- ─── CARD 1: QB3 ─── -->
+                    <!-- CARD P03: Memoria de Título UdeC (Integrated new styled guidelines page) -->
+                    <a href="Proyecto_01_buenas_practicas_mdt_udec.html" class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-3 block hover:border-indigo-400" data-cat="idi planificacion">
+                        <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative" style="background: linear-gradient(135deg, #312e81 0%, #4c1d95 100%);">
+                            <span class="text-5xl">🎓</span>
+                            <span class="absolute top-3 right-3 tag bg-indigo-900 text-indigo-200">Académico</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg leading-snug">Guía de Tesis y Memorias (UdeC)</h3>
+                            <p class="text-slate-500 text-sm mt-2 leading-relaxed">Estructura formal, pautas de formateo y reglamento de memorias de título para la Facultad de Ingeniería de la Universidad de Concepción.</p>
+                            <div class="mt-4 flex flex-wrap gap-1">
+                                <span class="tag bg-slate-100 text-slate-500">UdeC</span>
+                                <span class="tag bg-slate-100 text-slate-500">Normas APA / FI</span>
+                                <span class="tag bg-slate-100 text-slate-500">Metodología</span>
+                            </div>
+                            <p class="mt-3 text-xs text-indigo-600 font-semibold mono flex items-center gap-1">Ver proyecto →</p>
+                        </div>
+                    </a>
+
+                    <!-- CARD 1: QB3 -->
                     <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-3" data-cat="mercado">
                         <div class="img-placeholder img-wrap h-44 overflow-hidden relative">
                             <img src="assets/proyecto-qb2-digsilent.png" alt="Quebrada Blanca 3" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
@@ -257,7 +274,7 @@
                         </div>
                     </div>
 
-                    <!-- ─── CARD 2: Auto Solar ─── -->
+                    <!-- CARD 2: Auto Solar -->
                     <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-3" data-cat="idi ernc electromovilidad">
                         <div class="img-placeholder img-wrap h-44 overflow-hidden relative">
                             <img src="assets/auto-solar.png" alt="Auto Solar UdeC" class="w-full h-full object-cover opacity-80" onerror="this.style.display='none'">
@@ -275,23 +292,7 @@
                         </div>
                     </div>
 
-                    <!-- ─── CARD 3: Hidrotérmica ─── -->
-                    <!-- <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-4" data-cat="optimizacion mercado">
-                        <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative">
-                            <span class="text-5xl">⚡</span>
-                        </div>
-                        <div class="p-5">
-                            <h3 class="font-bold text-lg leading-snug">Coordinación Hidrotérmica Estocástica</h3>
-                            <p class="text-slate-500 text-sm mt-2 leading-relaxed">Modelamiento y análisis de despacho óptimo con incertidumbre hidrológica usando PLP y Plexos para el SEN chileno.</p>
-                            <div class="mt-4 flex flex-wrap gap-1">
-                                <span class="tag bg-slate-100 text-slate-500">PLP</span>
-                                <span class="tag bg-slate-100 text-slate-500">Plexos</span>
-                                <span class="tag bg-slate-100 text-slate-500">Optimización</span>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- ─── CARD 4: Dashboard BI ─── -->
+                    <!-- CARD 4: Dashboard BI -->
                     <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-4" data-cat="data">
                         <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative">
                             <span class="text-5xl">📊</span>
@@ -308,7 +309,7 @@
                         </div>
                     </div>
 
-                    <!-- ─── CARD 5: RPA Regulación ─── -->
+                    <!-- CARD 5: RPA Regulación -->
                     <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-5" data-cat="rpa">
                         <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative">
                             <span class="text-5xl">🤖</span>
@@ -325,7 +326,7 @@
                         </div>
                     </div>
 
-                    <!-- ─── CARD 6: Finanzas ─── -->
+                    <!-- CARD 6: Finanzas -->
                     <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-5" data-cat="finanzas data">
                         <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative">
                             <span class="text-5xl">📈</span>
@@ -341,7 +342,7 @@
                         </div>
                     </div>
 
-                    <!-- ─── CARD 7: Redes PandaPower ─── -->
+                    <!-- CARD 7: Redes PandaPower -->
                     <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-6" data-cat="data optimizacion mercado">
                         <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative">
                             <span class="text-5xl">🔌</span>
@@ -357,23 +358,6 @@
                         </div>
                     </div>
 
-                    <!-- ─── CARD 8: Optimización CPLEX ─── -->
-                    <!-- <div class="project-card bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm fade-up fade-up-6" data-cat="optimizacion">
-                        <div class="img-placeholder img-wrap h-44 flex items-center justify-center relative">
-                            <span class="text-5xl">🧮</span>
-                            <span class="absolute top-3 left-3 tag bg-violet-100 text-violet-700">Optimización</span>
-                        </div>
-                        <div class="p-5">
-                            <h3 class="font-bold text-lg leading-snug">Despacho Óptimo con CPLEX / Gurobi</h3>
-                            <p class="text-slate-500 text-sm mt-2 leading-relaxed">Formulación MILP para programación semanal de unidades térmicas e hidráulicas considerando restricciones operativas y ramping.</p>
-                            <div class="mt-4 flex flex-wrap gap-1">
-                                <span class="tag bg-slate-100 text-slate-500">CPLEX</span>
-                                <span class="tag bg-slate-100 text-slate-500">Gurobi</span>
-                                <span class="tag bg-slate-100 text-slate-500">MILP</span>
-                            </div>
-                        </div>
-                    </div> -->
-
                 </div><!-- /grid -->
 
                 <!-- Empty state -->
@@ -385,7 +369,7 @@
         </div>
     </section>
 
-    <!-- ─── CTA volver ─── -->
+    <!-- CTA volver -->
     <section class="px-6 pb-16">
         <div class="max-w-6xl mx-auto">
             <a href="index.html" class="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-blue-600 transition mono">
@@ -394,20 +378,20 @@
         </div>
     </section>
 
-    <!-- ─── Footer / Contacto ─── -->
+    <!-- Footer / Contacto -->
     <footer id="contacto" class="bg-slate-900 text-white py-20 px-6">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-3xl font-bold mb-4">Contacto</h2>
             <div class="flex justify-center gap-8">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSei_Quq4hQQZV1Gz7C4OFYaktODKp1BbhhdEFyya9KsNqXrSQ/viewform?usp=publish-editor" class="hover:text-blue-400 transition underline underline-offset-8 italic">Mensaje Directo</a>
-                <a href="https://www.linkedin.com/in/gabrielseguelg" class="hover:text-blue-400 transition underline underline-offset-8 italic">LinkedIn</a>
-                <a href="https://github.com/Gseguelg" class="hover:text-blue-400 transition underline underline-offset-8 italic">Github</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSei_Quq4hQQZV1Gz7C4OFYaktODKp1BbhhdEFyya9KsNqXrSQ/viewform?usp=publish-editor" class="hover:text-blue-400 transition underline underline-offset-8 italic text-sm md:text-base">Mensaje Directo</a>
+                <a href="https://www.linkedin.com/in/gabrielseguelg" class="hover:text-blue-400 transition underline underline-offset-8 italic text-sm md:text-base">LinkedIn</a>
+                <a href="https://github.com/Gseguelg" class="hover:text-blue-400 transition underline underline-offset-8 italic text-sm md:text-base">Github</a>
             </div>
             <p class="mt-20 text-xs text-slate-500 mono tracking-widest">Mayo 2026</p>
         </div>
     </footer>
 
-    <!-- ─── Filter script ─── -->
+    <!-- Filter script -->
     <script>
         const pills = document.querySelectorAll('#filters .pill');
         const cards = document.querySelectorAll('#projectGrid [data-cat]');
