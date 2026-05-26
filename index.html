@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gabriel Seguel | M.Sc. Ingeniero Civil Eléctrico</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
     }
 
     .mono {
-      font-family: 'JetBrains+Mono', monospace;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .gradient-text {
@@ -21,98 +21,125 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
+    /* Mobile menu */
+    #mobile-menu {
+      display: none;
+    }
+
+    #mobile-menu.open {
+      display: flex;
+    }
+
+    /* Timeline */
+    .timeline-line {
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #2563eb, #e2e8f0);
+    }
   </style>
 </head>
 
 <body class="bg-slate-50 text-slate-800">
 
   <!-- Navegación -->
-  <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+  <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
       <span class="font-bold tracking-tighter text-xl">GSG<span class="text-blue-600"></span></span>
-      <div class="space-x-8 text-sm font-medium uppercase tracking-widest">
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center space-x-8 text-sm font-medium uppercase tracking-widest">
         <a href="#perfil" class="hover:text-blue-600 transition">Perfil</a>
         <a href="#experiencia" class="hover:text-blue-600 transition">Experiencia</a>
         <a href="proyectos.html" class="hover:text-blue-600 transition">Proyectos</a>
         <a href="https://github.com/Gseguelg" class="hover:text-blue-600 transition">Github</a>
         <a href="#contacto" class="text-blue-600 border border-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition">Contacto</a>
-        <!-- <a href="#contacto" class="hover:text-blue-600 transition">Contacto</a>
-        <a href="https://github.com/Gseguelg" class="text-blue-600 border border-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition">Github</a> -->
       </div>
+
+      <!-- Mobile hamburger -->
+      <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2 rounded-lg border border-slate-200 hover:bg-slate-50 transition" onclick="toggleMenu()">
+        <span class="w-5 h-0.5 bg-slate-600 block transition-all" id="h1"></span>
+        <span class="w-5 h-0.5 bg-slate-600 block transition-all" id="h2"></span>
+        <span class="w-5 h-0.5 bg-slate-600 block transition-all" id="h3"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="flex-col md:hidden bg-white border-t border-slate-100 px-5 py-4 space-y-1">
+      <a href="#perfil" onclick="closeMenu()" class="block py-3 text-sm font-medium uppercase tracking-widest text-slate-600 hover:text-blue-600 border-b border-slate-100">Perfil</a>
+      <a href="#experiencia" onclick="closeMenu()" class="block py-3 text-sm font-medium uppercase tracking-widest text-slate-600 hover:text-blue-600 border-b border-slate-100">Experiencia</a>
+      <a href="proyectos.html" class="block py-3 text-sm font-medium uppercase tracking-widest text-slate-600 hover:text-blue-600 border-b border-slate-100">Proyectos</a>
+      <a href="https://github.com/Gseguelg" class="block py-3 text-sm font-medium uppercase tracking-widest text-slate-600 hover:text-blue-600 border-b border-slate-100">Github</a>
+      <a href="#contacto" onclick="closeMenu()" class="block py-3 text-sm font-medium uppercase tracking-widest text-blue-600">Contacto</a>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section id="perfil" class="pt-32 pb-20 px-6">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+  <section id="perfil" class="pt-28 pb-16 px-5">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <span class="mono text-blue-600 font-semibold text-sm tracking-widest">M.Sc. EN INGENIERÍA ELÉCTRICA</span>
-        <h1 class="text-6xl font-bold text-slate-900 mt-4 mb-6 tracking-tight">Gabriel Seguel</h1>
-        <p class="text-lg text-slate-600 leading-relaxed mb-8" style="text-align: justify;">
+        <span class="mono text-blue-600 font-semibold text-xs tracking-widest uppercase">M.Sc. en Ingeniería Eléctrica</span>
+        <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mt-4 mb-6 tracking-tight">Gabriel Seguel</h1>
+        <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-8 text-justify">
           Profesional de excelencia con conocimiento de la operación real y programada del <span class="text-slate-900 font-semibold">Sistema Eléctrico Nacional Chileno</span>, junto con los <span class="text-slate-900 font-semibold">Sistemas Medianos</span> de <span class="text-slate-900 font-semibold">Hornopirén</span>, <span class="text-slate-900 font-semibold">Magallanes</span> y <span class="text-slate-900 font-semibold">Aysén</span>.
-          Posee una amplia visión del mercado eléctrico y los actores que lo componen, en adición de gran interés en <span class="text-slate-900 font-semibold">RPA</span>, <span class="text-slate-900 font-semibold">Data Analytics</span>, <span class="text-slate-900 font-semibold">BI</span> y <span class="text-slate-900 font-semibold">programación</span>. Sabe modelar y analizar problemas de coordinación hidrotérmica estocástica mediante <span class="text-slate-900 font-semibold">PLP</span> y <span class="text-slate-900 font-semibold">Plexos</span>; junto con simulación EMT/RMS en <span class="text-slate-900 font-semibold">DIgSILENT</span>, <span class="text-slate-900 font-semibold">ETAP</span> y <span class="text-slate-900 font-semibold">PandaPower</span>.
+          Posee una amplia visión del mercado eléctrico y los actores que lo componen, con gran interés en <span class="text-slate-900 font-semibold">RPA</span>, <span class="text-slate-900 font-semibold">Data Analytics</span>, <span class="text-slate-900 font-semibold">BI</span> y <span class="text-slate-900 font-semibold">programación</span>. Modela y analiza problemas de coordinación hidrotérmica estocástica mediante <span class="text-slate-900 font-semibold">PLP</span> y <span class="text-slate-900 font-semibold">Plexos</span>; junto con simulación EMT/RMS en <span class="text-slate-900 font-semibold">DIgSILENT</span>, <span class="text-slate-900 font-semibold">ETAP</span> y <span class="text-slate-900 font-semibold">PandaPower</span>.
         </p>
-        <div class="flex gap-4">
-          <a href="#contacto" class="bg-slate-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-slate-800 transition">Contactar</a>
-          <!-- <a href="#" class="bg-white border border-slate-200 px-8 py-3 rounded-lg font-medium hover:border-blue-400 transition">Descargar CV</a> -->
+        <div class="flex flex-wrap gap-3">
+          <a href="#contacto" class="bg-slate-900 text-white px-7 py-3 rounded-lg font-medium hover:bg-slate-700 transition text-sm">Contactar</a>
+          <a href="#experiencia" class="bg-white border border-slate-200 px-7 py-3 rounded-lg font-medium hover:border-blue-400 transition text-sm text-slate-700">Ver experiencia</a>
         </div>
       </div>
-      <!-- ESPACIO PARA FOTOGRAFÍA -->
-      <div class="relative">
-        <div class="aspect-square bg-slate-200 rounded-2xl overflow-hidden border-8 border-white shadow-2xl">
-          <!-- Cambiar 'assets/perfil.png' por tu ruta -->
+
+      <!-- Foto -->
+      <div class="relative mt-4 md:mt-0 flex justify-center">
+        <div class="w-64 h-64 md:w-full md:aspect-square bg-slate-200 rounded-2xl overflow-hidden border-4 md:border-8 border-white shadow-2xl max-w-xs md:max-w-none">
           <img src="assets/perfil.png" alt="Gabriel Seguel" class="w-full h-full object-cover">
-          <div class="absolute inset-0 flex items-center justify-center text-slate-400">
-            <!-- Si no hay imagen, aparecerá este texto -->
-            <span> </span>
-          </div>
         </div>
-        <div class="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-xl shadow-xl">
+        <div class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 bg-blue-600 text-white px-4 py-3 md:p-6 rounded-xl shadow-xl max-w-[180px] md:max-w-none">
           <p class="text-xs mono uppercase opacity-80">Coopelan</p>
-          <!-- <p class="text-xs mono uppercase opacity-80">Tech Stack</p> -->
-          <p class="font-bold">Ingeniero de Regulación y Planificación</p>
-          <!-- <p class="font-bold">Python + DigSILENT</p> -->
+          <p class="font-bold text-sm md:text-base leading-tight">Ingeniero de Regulación y Planificación</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Banner Proyectos Informáticos -->
-  <section class="px-6 py-10">
-    <a href="#proyectos" class="block max-w-6xl mx-auto bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 hover:scale-[1.01] transition-transform shadow-lg group">
-      <div class="flex justify-between items-center">
+  <!-- Banner Portafolio -->
+  <section class="px-5 py-10">
+    <a href="proyectos.html" class="block max-w-6xl mx-auto bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-7 md:p-8 hover:scale-[1.01] transition-transform shadow-lg group">
+      <div class="flex justify-between items-center gap-4">
         <div>
-          <h3 class="text-white text-2xl font-bold">Revisa mi portafolio</h3>
-          <p class="text-blue-100 mt-2">Explora algunos de mis desarrollos en Data Science, RPA, Mercado Eléctrico, Optimización energética y Finanzas.</p>
+          <h3 class="text-white text-xl md:text-2xl font-bold">Revisa mi portafolio</h3>
+          <p class="text-blue-100 mt-2 text-sm md:text-base">Explora mis desarrollos en Data Science, RPA, Mercado Eléctrico, Optimización energética y Finanzas.</p>
         </div>
-        <span class="text-white text-3xl group-hover:translate-x-2 transition-transform">→</span>
+        <span class="text-white text-3xl group-hover:translate-x-2 transition-transform flex-shrink-0">→</span>
       </div>
     </a>
   </section>
 
-  <!-- Secciones Duales: Eléctrica & Datos -->
-  <section class="py-20 px-6 bg-white">
+  <!-- Core de Especialización -->
+  <section class="py-16 md:py-20 px-5 bg-white">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold mb-16 text-center">Core de Especialización</h2>
-      <div class="grid md:grid-cols-2 gap-16">
-        <!-- Ingeniería Eléctrica -->
-        <div class="border-l-4 border-blue-500 pl-8">
-          <h3 class="text-xl font-bold mb-4 flex items-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center">Core de Especialización</h2>
+      <div class="grid md:grid-cols-2 gap-10 md:gap-16">
+        <div class="border-l-4 border-blue-500 pl-6 md:pl-8">
+          <h3 class="text-lg md:text-xl font-bold mb-4 flex items-center">
             <span class="mr-3">⚡</span> Sistemas Eléctricos de Potencia
           </h3>
-          <p class="text-slate-600 mb-6 italic">Enfoque en operación real y programada del Sistema Eléctrico Nacional.</p>
+          <p class="text-slate-600 mb-5 italic text-sm md:text-base">Enfoque en operación real y programada del Sistema Eléctrico Nacional.</p>
           <ul class="space-y-3 mono text-sm text-slate-700">
             <li>• Modelación hidrotérmica (PLP, Plexos)</li>
             <li>• Simulación EMT/RMS (DIgSILENT, ETAP)</li>
             <li>• Planificación de largo plazo y SAEs</li>
           </ul>
         </div>
-        <!-- Datos y Programación -->
-        <div class="border-l-4 border-emerald-500 pl-8">
-          <h3 class="text-xl font-bold mb-4 flex items-center">
+        <div class="border-l-4 border-emerald-500 pl-6 md:pl-8">
+          <h3 class="text-lg md:text-xl font-bold mb-4 flex items-center">
             <span class="mr-3">💻</span> Data Science & Programming
           </h3>
-          <p class="text-slate-600 mb-6 italic">Transformando datos eléctricos en decisiones estratégicas (BI).</p>
+          <p class="text-slate-600 mb-5 italic text-sm md:text-base">Transformando datos eléctricos en decisiones estratégicas (BI).</p>
           <ul class="space-y-3 mono text-sm text-slate-700">
             <li>• Python para análisis de redes (PandaPower)</li>
             <li>• Modelamiento de bases de datos SQL</li>
@@ -123,209 +150,253 @@
     </div>
   </section>
 
-  <!-- Proyectos Destacados — Carrusel -->
-  <section id="proyectos" class="py-20 px-6 bg-slate-50 overflow-hidden">
+  <!-- Experiencia -->
+  <section id="experiencia" class="py-16 md:py-20 px-5 bg-slate-50">
     <div class="max-w-6xl mx-auto">
-      <div class="flex items-end justify-between mb-10">
+      <span class="mono text-blue-600 font-semibold text-xs tracking-widest uppercase">Trayectoria profesional</span>
+      <h2 class="text-2xl md:text-3xl font-bold mt-2 mb-12">Experiencia</h2>
+
+      <div class="grid md:grid-cols-2 gap-12">
+
+        <!-- Columna izquierda: Laboral -->
         <div>
-          <span class="mono text-blue-600 font-semibold text-xs tracking-widest uppercase">Portafolio</span>
-          <h2 class="text-3xl font-bold mt-2">Proyectos Destacados</h2>
+          <h3 class="text-xs mono font-bold uppercase tracking-widest text-slate-400 mb-6">Cargos</h3>
+          <div class="relative pl-6">
+            <div class="timeline-line"></div>
+
+            <!-- Coopelan -->
+            <div class="relative mb-8">
+              <div class="absolute -left-6 top-1.5 w-4 h-4 rounded-full bg-blue-600 border-2 border-white shadow"></div>
+              <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex flex-wrap gap-2 items-start justify-between mb-2">
+                  <div>
+                    <p class="font-bold text-slate-900 text-sm md:text-base">Ingeniero de Regulación y Planificación</p>
+                    <p class="text-blue-600 font-semibold text-xs mono mt-0.5">Coopelan</p>
+                  </div>
+                  <span class="text-xs mono text-slate-400 bg-slate-100 px-2 py-1 rounded-full whitespace-nowrap">2024 — Presente</span>
+                </div>
+                <p class="text-slate-500 text-sm leading-relaxed">Operación programada del SEN, Sistemas Medianos (Hornopirén, Magallanes, Aysén), regulación eléctrica y planificación de largo plazo.</p>
+                <div class="mt-3 flex flex-wrap gap-1">
+                  <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full mono">DIgSILENT</span>
+                  <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full mono">PLP</span>
+                  <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full mono">Plexos</span>
+                  <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full mono">Python</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CEN -->
+            <div class="relative mb-8">
+              <div class="absolute -left-6 top-1.5 w-4 h-4 rounded-full bg-blue-600 border-2 border-white shadow"></div>
+              <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex flex-wrap gap-2 items-start justify-between mb-2">
+                  <div>
+                    <p class="font-bold text-slate-900 text-sm md:text-base">Ingeniero Programación de a Operación, Estudios y Análisis de Suminitro</p>
+                    <p class="text-blue-600 font-semibold text-xs mono mt-0.5">Coordinador Eléctrico Nacional</p>
+                  </div>
+                  <span class="text-xs mono text-slate-400 bg-slate-100 px-2 py-1 rounded-full whitespace-nowrap">2020 — 2023</span>
+                </div>
+                <p class="text-slate-500 text-sm leading-relaxed">Programador de corto, mediano, largo plazo y estudios asociados del SEN y SSMM. DPRO+DEAS</p>
+                <div class="mt-3 flex flex-wrap gap-1">
+                  <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full mono">PLP</span>
+                  <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full mono">Plexos</span>
+                  <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full mono">MSO Suit</span>
+                  <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full mono">VBA</span>
+                  <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full mono">Python</span>
+                  <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full mono">Fortran</span>
+                  <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full mono">C#</span>
+                  <span class="text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full mono">CPP</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profesor UBB -->
+            <div class="relative mb-8">
+              <div class="absolute -left-6 top-1.5 w-4 h-4 rounded-full bg-indigo-500 border-2 border-white shadow"></div>
+              <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex flex-wrap gap-2 items-start justify-between mb-2">
+                  <div>
+                    <p class="font-bold text-slate-900 text-sm md:text-base">Docente Universitario</p>
+                    <p class="text-indigo-500 font-semibold text-xs mono mt-0.5">Universidad del Biobío</p>
+                  </div>
+                  <span class="text-xs mono text-slate-400 bg-slate-100 px-2 py-1 rounded-full whitespace-nowrap">2019</span>
+                </div>
+                <p class="text-slate-500 text-sm leading-relaxed">Docente jornada parcial. Departamento de Ingeniería Eléctrica y Electrónica. Concepción, Chile.</p>
+                <div class="mt-3 flex flex-wrap gap-1">
+                  <span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full mono">DIgSILENT</span>
+                  <span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full mono">MS PowerPoint</span>
+                  <span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full mono">Docencia</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Consultor Powersoft -->
+            <div class="relative mb-8">
+              <div class="absolute -left-6 top-1.5 w-4 h-4 rounded-full bg-indigo-500 border-2 border-white shadow"></div>
+              <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex flex-wrap gap-2 items-start justify-between mb-2">
+                  <div>
+                    <p class="font-bold text-slate-900 text-sm md:text-base">Consultor Estratégico de Proyectos</p>
+                    <p class="text-indigo-500 font-semibold text-xs mono mt-0.5">Powersoft</p>
+                  </div>
+                  <span class="text-xs mono text-slate-400 bg-slate-100 px-2 py-1 rounded-full whitespace-nowrap">2019</span>
+                </div>
+                <p class="text-slate-500 text-sm leading-relaxed">Estrategias de conexión de grandes consumos mineros (Quebrada Blanca, fases 1-3), análisis de hosting capacity y estudios de impacto en red.</p>
+                <div class="mt-3 flex flex-wrap gap-1">
+                  <span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full mono">DIgSILENT</span>
+                  <span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full mono">Python</span>
+                  <span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full mono">Consultoría</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Transelec -->
+            <div class="relative mb-8">
+              <div class="absolute -left-6 top-1.5 w-4 h-4 rounded-full bg-indigo-500 border-2 border-white shadow"></div>
+              <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex flex-wrap gap-2 items-start justify-between mb-2">
+                  <div>
+                    <p class="font-bold text-slate-900 text-sm md:text-base">Práctica Profesional</p>
+                    <p class="text-indigo-500 font-semibold text-xs mono mt-0.5">Transelec</p>
+                  </div>
+                  <span class="text-xs mono text-slate-400 bg-slate-100 px-2 py-1 rounded-full whitespace-nowrap">2017</span>
+                </div>
+                <p class="text-slate-500 text-sm leading-relaxed">Práctica profesional voluntaria en Subgerencia de Planificación y Estudios Eléctricos en la Vicepresidencia Comercial y de Desarrollo de Negocios de Transelec (Transmission System Operator).</p>
+                <div class="mt-3 flex flex-wrap gap-1">
+                  <span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full mono">DIgSILENT</span>
+                  <span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full mono">Excel VBA</span>
+                  <span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full mono">MS Access</span>
+                  <span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full mono">Práctica</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- UdeC -->
+            <div class="relative mb-8">
+              <div class="absolute -left-6 top-1.5 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white shadow"></div>
+              <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition">
+                <div class="flex flex-wrap gap-2 items-start justify-between mb-2">
+                  <div>
+                    <p class="font-bold text-slate-900 text-sm md:text-base">Investigador / Área Eléctrica</p>
+                    <p class="text-emerald-600 font-semibold text-xs mono mt-0.5">Universidad de Concepción</p>
+                  </div>
+                  <span class="text-xs mono text-slate-400 bg-slate-100 px-2 py-1 rounded-full whitespace-nowrap">2014 — 2016</span>
+                </div>
+                <p class="text-slate-500 text-sm leading-relaxed">Diseño y construcción del sistema eléctrico del vehículo solar Antunekül. 1° lugar Carrera Solar Atacama 2016, 3° lugar 2014.</p>
+                <div class="mt-3 flex flex-wrap gap-1">
+                  <span class="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full mono">Electromovilidad</span>
+                  <span class="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full mono">I+D+I</span>
+                  <span class="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full mono">Energía Solar</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div class="flex items-center gap-3">
-          <button id="carousel-prev" class="w-10 h-10 rounded-full border border-slate-300 bg-white flex items-center justify-center hover:bg-blue-50 hover:border-blue-400 transition text-slate-600 hover:text-blue-600 shadow-sm" aria-label="Anterior">&#8592;</button>
-          <button id="carousel-next" class="w-10 h-10 rounded-full border border-slate-300 bg-white flex items-center justify-center hover:bg-blue-50 hover:border-blue-400 transition text-slate-600 hover:text-blue-600 shadow-sm" aria-label="Siguiente">&#8594;</button>
-          <a href="proyectos.html" class="ml-2 text-sm text-blue-600 font-medium hover:underline underline-offset-4 transition mono">Ver todos →</a>
+
+        <!-- Columna derecha: Educación + Skills -->
+        <div class="space-y-10">
+
+          <!-- Educación -->
+          <div>
+            <h3 class="text-xs mono font-bold uppercase tracking-widest text-slate-400 mb-6">Educación</h3>
+            <div class="relative pl-6">
+              <div class="timeline-line" style="background: linear-gradient(to bottom, #10b981, #e2e8f0);"></div>
+
+              <div class="relative mb-6">
+                <div class="absolute -left-6 top-1.5 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white shadow"></div>
+                <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+                  <div class="flex flex-wrap gap-2 items-start justify-between mb-1">
+                    <p class="font-bold text-slate-900 text-sm">M.Sc. en Ingeniería Eléctrica</p>
+                    <span class="text-xs mono text-slate-400 bg-slate-100 px-2 py-1 rounded-full">2016 — 2019</span>
+                  </div>
+                  <p class="text-emerald-600 font-semibold text-xs mono">Universidad de Concepción</p>
+                  <p class="text-slate-500 text-xs mt-2 leading-relaxed">Optimización estocástica en sistemas de potencia. Coordinación hidrotérmica con incertidumbre hidrológica.</p>
+                </div>
+              </div>
+
+              <div class="relative">
+                <div class="absolute -left-6 top-1.5 w-4 h-4 rounded-full bg-teal-400 border-2 border-white shadow"></div>
+                <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+                  <div class="flex flex-wrap gap-2 items-start justify-between mb-1">
+                    <p class="font-bold text-slate-900 text-sm">Ing. Civil Eléctrico</p>
+                    <span class="text-xs mono text-slate-400 bg-slate-100 px-2 py-1 rounded-full">2011 — 2017</span>
+                  </div>
+                  <p class="text-teal-600 font-semibold text-xs mono">Universidad de Concepción</p>
+                  <p class="text-slate-500 text-xs mt-2 leading-relaxed">Especialización en sistemas eléctricos de potencia, mercados eléctricos, electrónica de potencia y sistemas de Control.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stack tecnológico -->
+          <div>
+            <h3 class="text-xs mono font-bold uppercase tracking-widest text-slate-400 mb-5">Stack & Herramientas</h3>
+            <div class="space-y-3">
+              <div>
+                <p class="text-xs text-slate-500 mono mb-2">Simulación Eléctrica</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full mono font-semibold">DIgSILENT</span>
+                  <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full mono font-semibold">ETAP</span>
+                  <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full mono font-semibold">PandaPower</span>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 mono mb-2">Mercado & Optimización</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full mono font-semibold">PLP</span>
+                  <span class="text-xs bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full mono font-semibold">Plexos</span>
+                  <span class="text-xs bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full mono font-semibold">CPLEX</span>
+                  <span class="text-xs bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full mono font-semibold">Gurobi</span>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 mono mb-2">Data & Programación</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full mono font-semibold">Python</span>
+                  <span class="text-xs bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full mono font-semibold">SQL</span>
+                  <span class="text-xs bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full mono font-semibold">Power BI</span>
+                  <span class="text-xs bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full mono font-semibold">RPA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </div>
-
-      <!-- Track -->
-      <div class="relative">
-        <div id="carousel-track" class="flex gap-6 transition-transform duration-500 ease-in-out will-change-transform">
-
-          <!-- Card P01: DPL Reference -->
-          <a href="Proyecto_01_Referencia_DIgSILENT_DPL.html" class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <div class="h-44 flex items-center justify-center relative" style="background: linear-gradient(135deg, #0f1117 0%, #1e2744 100%);">
-              <span class="text-5xl">📋</span>
-              <span class="absolute top-3 right-3 text-xs font-bold px-2 py-1 rounded-full bg-blue-900 text-blue-200 uppercase tracking-wider" style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;">Referencia</span>
-            </div>
-            <div class="p-5">
-              <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">DIgSILENT · DPL</span>
-              <h4 class="text-base font-bold mt-1 leading-snug group-hover:text-blue-700 transition">Referencia DIgSILENT DPL</h4>
-              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Guía completa del lenguaje DPL para PowerFactory 2021 con ejemplos y scripts de automatización.</p>
-            </div>
-          </a>
-
-          <!-- Card P02: Python API Reference -->
-          <a href="Proyecto_02_Reference_DIgSILENT_Python.html" class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <div class="h-44 flex items-center justify-center relative" style="background: linear-gradient(135deg, #0b0f1a 0%, #1a2d45 100%);">
-              <span class="text-5xl">🐍</span>
-              <span class="absolute top-3 right-3 text-xs font-bold px-2 py-1 rounded-full bg-emerald-900 text-emerald-200 uppercase tracking-wider" style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;">Referencia</span>
-            </div>
-            <div class="p-5">
-              <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">DIgSILENT · Python API</span>
-              <h4 class="text-base font-bold mt-1 leading-snug group-hover:text-emerald-700 transition">Python API Reference</h4>
-              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Referencia de la API Python para PowerFactory: automatización de simulaciones y acceso a objetos de red.</p>
-            </div>
-          </a>
-
-          <!-- Card QB3 -->
-          <div class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <div class="h-44 bg-slate-200 overflow-hidden">
-              <img src="assets/proyecto-qb2-digsilent.png" alt="Proyecto QB3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-80" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center\'><span class=\'text-5xl\'>⚡</span></div>'">
-            </div>
-            <div class="p-5">
-              <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Consultoría Estratégica</span>
-              <h4 class="text-base font-bold mt-1 leading-snug">Expansión Quebrada Blanca 3</h4>
-              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Estrategias de conexión de grandes consumos y generación en fases 1, 2 y 3.</p>
-            </div>
-          </div>
-
-          <!-- Card Auto Solar -->
-          <div class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <div class="h-44 bg-slate-200 overflow-hidden">
-              <img src="assets/auto-solar.png" alt="Auto Solar UdeC" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-80" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center\'><span class=\'text-5xl\'>☀️</span></div>'">
-            </div>
-            <div class="p-5">
-              <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">I+D+I · Electromovilidad</span>
-              <h4 class="text-base font-bold mt-1 leading-snug">Proyecto Auto Solar UdeC</h4>
-              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Antunekül I: 3° lugar · Antunekül II: 1° lugar — Carrera Solar Atacama.</p>
-            </div>
-          </div>
-
-          <!-- Card Dashboard BI -->
-          <div class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <div class="h-44 flex items-center justify-center" style="background:linear-gradient(135deg,#1e293b,#0f172a);">
-              <span class="text-5xl">📊</span>
-            </div>
-            <div class="p-5">
-              <span class="text-xs font-bold text-violet-600 uppercase tracking-wider">Data Science · BI</span>
-              <h4 class="text-base font-bold mt-1 leading-snug">Dashboard BI — Mercado Spot</h4>
-              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Panel interactivo para seguimiento de precios de nudo, costos marginales y balance del SEN.</p>
-            </div>
-          </div>
-
-          <!-- Card RPA -->
-          <div class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <div class="h-44 flex items-center justify-center" style="background:linear-gradient(135deg,#1a1f2e,#0f1117);">
-              <span class="text-5xl">🤖</span>
-            </div>
-            <div class="p-5">
-              <span class="text-xs font-bold text-orange-600 uppercase tracking-wider">RPA · Automatización</span>
-              <h4 class="text-base font-bold mt-1 leading-snug">Automatización de Reportes Regulatorios</h4>
-              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Pipeline RPA para extracción y envío automático de informes a la CNE y SEC — 70% menos tiempo operativo.</p>
-            </div>
-          </div>
-
-          <!-- Card Finanzas -->
-          <div class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <div class="h-44 flex items-center justify-center" style="background:linear-gradient(135deg,#0d1f0d,#162616);">
-              <span class="text-5xl">📈</span>
-            </div>
-            <div class="p-5">
-              <span class="text-xs font-bold text-green-600 uppercase tracking-wider">Finanzas · Riesgo</span>
-              <h4 class="text-base font-bold mt-1 leading-snug">Análisis de Riesgo Energético-Financiero</h4>
-              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Valoración de contratos PPA bajo escenarios hidrológicos con simulación Monte Carlo.</p>
-            </div>
-          </div>
-
-          <!-- Card PandaPower -->
-          <div class="carousel-card flex-none w-72 bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <div class="h-44 flex items-center justify-center" style="background:linear-gradient(135deg,#0f1a2e,#1a2744);">
-              <span class="text-5xl">🔌</span>
-            </div>
-            <div class="p-5">
-              <span class="text-xs font-bold text-cyan-600 uppercase tracking-wider">Python · Redes</span>
-              <h4 class="text-base font-bold mt-1 leading-snug">Análisis de Redes con PandaPower</h4>
-              <p class="text-slate-500 text-sm mt-2 leading-relaxed line-clamp-2">Flujos de potencia, contingencias N-1 y hosting capacity para integración de ERNC.</p>
-            </div>
-          </div>
-
-        </div><!-- /track -->
-
-        <!-- Dot indicators -->
-        <div id="carousel-dots" class="flex justify-center gap-2 mt-8"></div>
       </div>
     </div>
   </section>
 
-  <script>
-    (function () {
-      const track = document.getElementById('carousel-track');
-      const prevBtn = document.getElementById('carousel-prev');
-      const nextBtn = document.getElementById('carousel-next');
-      const dotsContainer = document.getElementById('carousel-dots');
-      const cards = track.querySelectorAll('.carousel-card');
-      const GAP = 24; // gap-6 = 1.5rem = 24px
-      let current = 0;
-
-      function visibleCount() {
-        const w = track.parentElement.offsetWidth;
-        const cardW = 288 + GAP; // w-72 = 288px
-        return Math.max(1, Math.floor(w / cardW));
-      }
-
-      const total = cards.length;
-
-      function maxIndex() { return Math.max(0, total - visibleCount()); }
-
-      // Build dots
-      function buildDots() {
-        dotsContainer.innerHTML = '';
-        const pages = maxIndex() + 1;
-        for (let i = 0; i < pages; i++) {
-          const d = document.createElement('button');
-          d.className = 'w-2 h-2 rounded-full transition-all duration-300 ' + (i === current ? 'bg-blue-600 w-5' : 'bg-slate-300');
-          d.addEventListener('click', () => goTo(i));
-          dotsContainer.appendChild(d);
-        }
-      }
-
-      function updateDots() {
-        const dots = dotsContainer.querySelectorAll('button');
-        dots.forEach((d, i) => {
-          d.className = 'h-2 rounded-full transition-all duration-300 ' + (i === current ? 'bg-blue-600 w-5' : 'bg-slate-300 w-2');
-        });
-      }
-
-      function goTo(idx) {
-        current = Math.max(0, Math.min(idx, maxIndex()));
-        const cardW = 288 + GAP;
-        track.style.transform = `translateX(-${current * cardW}px)`;
-        updateDots();
-        prevBtn.style.opacity = current === 0 ? '0.4' : '1';
-        nextBtn.style.opacity = current >= maxIndex() ? '0.4' : '1';
-      }
-
-      prevBtn.addEventListener('click', () => goTo(current - 1));
-      nextBtn.addEventListener('click', () => goTo(current + 1));
-
-      // Touch / drag support
-      let startX = 0;
-      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-      track.addEventListener('touchend', e => {
-        const dx = e.changedTouches[0].clientX - startX;
-        if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
-      });
-
-      buildDots();
-      goTo(0);
-      window.addEventListener('resize', () => { buildDots(); goTo(Math.min(current, maxIndex())); });
-    })();
-  </script>
-
   <!-- Footer / Contacto -->
-  <footer id="contacto" class="bg-slate-900 text-white py-20 px-6">
+  <footer id="contacto" class="bg-slate-900 text-white py-16 md:py-20 px-5">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4">Contacto</h2>
-      <!-- <p class="text-slate-400 mb-10 text-lg">M.Sc. Gabriel Seguel - Ingeniero de Regulación y Planificación.</p> -->
-      <div class="flex justify-center gap-8">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSei_Quq4hQQZV1Gz7C4OFYaktODKp1BbhhdEFyya9KsNqXrSQ/viewform?usp=publish-editor" class="hover:text-blue-400 transition underline underline-offset-8 italic">Mensaje Directo</a>
-        <a href="https://www.linkedin.com/in/gabrielseguelg" class="hover:text-blue-400 transition underline underline-offset-8 italic">LinkedIn</a>
-        <a href="https://github.com/Gseguelg" class="hover:text-blue-400 transition underline underline-offset-8 italic">Github</a>
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Contacto</h2>
+      <div class="flex flex-wrap justify-center gap-6 md:gap-8 mt-6">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSei_Quq4hQQZV1Gz7C4OFYaktODKp1BbhhdEFyya9KsNqXrSQ/viewform?usp=publish-editor" class="hover:text-blue-400 transition underline underline-offset-8 italic text-sm md:text-base">Mensaje Directo</a>
+        <a href="https://www.linkedin.com/in/gabrielseguelg" class="hover:text-blue-400 transition underline underline-offset-8 italic text-sm md:text-base">LinkedIn</a>
+        <a href="https://github.com/Gseguelg" class="hover:text-blue-400 transition underline underline-offset-8 italic text-sm md:text-base">Github</a>
       </div>
-      <p class="mt-20 text-xs text-slate-500 mono tracking-widest">Mayo 2026</p>
+      <p class="mt-16 text-xs text-slate-500 mono tracking-widest">Mayo 2026</p>
     </div>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('mobile-menu').classList.remove('open');
+    }
+    // Close menu on outside click
+    document.addEventListener('click', function (e) {
+      const menu = document.getElementById('mobile-menu');
+      const hamburger = document.getElementById('hamburger');
+      if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+  </script>
 
 </body>
 
